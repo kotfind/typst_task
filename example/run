@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z "$TYPST_ROOT" ]; then
+    tput bold setaf 1
+    echo "error: \$TYPST_ROOT should be defined"
+    tput sgr0
+    exit 1
+fi
+
+typst compile main.typ
+zathura main.pdf &
